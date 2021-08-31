@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./forgetpassword.page.scss'],
 })
 export class ForgetpasswordPage implements OnInit {
+  showLoader = false;
 
   constructor() { }
 
