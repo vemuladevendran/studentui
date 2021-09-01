@@ -26,6 +26,12 @@ const routes: Routes = [
     path: 'view-report/:id',
     loadChildren: () => import('./view-reports/view-reports.module').then( m => m.ViewReportsPageModule)
     // canActivate: [AuthGuard]
+  },
+  {
+    path: 'update-password',
+    loadChildren: () => import('./update-password/update-password.module').then( m => m.UpdatePasswordPageModule)
+    // canActivate: [AuthGuard]
+
   }
 ];
 @NgModule({

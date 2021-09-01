@@ -6,4 +6,57 @@
 
 <ion-content>
 
+  <div class="container">
+    <div class="row">
+      <div class="col-12">
+        <!-- profile image -->
+        <div class="row">
+          <div class="col-6">
+            <img src="/assets/default-profile.png" alt="profile" style="max-height: 15rem;">
+          </div>
+          <div class="col-6 text-center">
+            <p class="text-uppercase"> Devendran Vemula</p>
+            <p class="text-uppercase">2019pecit248</p>
+            <p>211419205038</p>
+          </div>
+        </div>
+        <hr>
+        <!-- student details -->
+        <div class="row">
+          <p class="col-12">Email: {{'devendranvemula@gmail.com'}}</p>
+          <p class="col-12">Gender: {{'Male'}}</p>
+          <p class="col-12">Mobile: {{'9445296380'}}</p>
+          <p class="col-12">DOB: {{'27/08/2002'}}</p>
+          <p class="col-12">Father's Name: {{'abcdef'}}</p>
+          <p class="col-12">Mother's Name: {{'dnjkdk'}}</p>
+          <hr>
+          <h2 class="fw-bold text-center">Education Details</h2>
+          <p class="col-12">Year of 10th Passout: {{'2000'}}</p>
+          <p class="col-12">Year of 12th Passout: {{'2000'}}</p>
+          <p class="col-12">10th Mark Percentage: {{'88'}}</p>
+          <p class="col-12">12th Mark Percentage: {{'88'}}</p>
+          <p class="col-12">10th School Name: {{'Vivekananda'}}</p>
+          <p class="col-12">12th School Name: {{'Vivekananda'}}</p>
+          <hr>
+          <h2 class="fw-bold text-center">College Details</h2>
+          <p class="col-12">Year of college Joined :: {{'2000'}}</p>
+          <p class="col-12">Current Studing Year: {{'Fourth Year'}}</p>
+          <p class="col-12">Roll Number: {{'88'}}</p>
+          <p class="col-12">Exam Number: {{'211419205038'}}</p>
+          <p class="col-12">Branch: {{'Information Technology'}}</p>
+          <p class="col-12">Section: {{'b'}}</p>
+          <hr>
+          <div class="row m-0">
+            <div class="col-12 col-md-6 text-center">
+              <ion-button type="button" class="w-100" color="medium" routerLink="/update-password">Update Password</ion-button>
+            </div>
+            <div class="col-12 col-md-6 text-center">
+              <ion-button type="button" class="w-100">Log Out<ion-spinner class="ms-3 text-dark" *ngIf="showLogoutLoader" name="crescent"></ion-spinner></ion-button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </ion-content>
