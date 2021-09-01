@@ -6,7 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./marks.page.scss'],
 })
 export class MarksPage implements OnInit {
-
+  showLoader = true;
+  marks = Array(10).fill('');
   constructor() { }
 
   ngOnInit() {

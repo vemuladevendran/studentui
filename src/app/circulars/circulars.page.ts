@@ -6,6 +6,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./circulars.page.scss'],
 })
 export class CircularsPage implements OnInit {
+  showLoader = true;
+ circulars = Array(10).fill('');
 
   constructor() { }
 

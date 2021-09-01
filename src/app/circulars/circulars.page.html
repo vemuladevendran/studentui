@@ -1,9 +1,53 @@
 <ion-header>
   <ion-toolbar>
-      <ion-title>circulars<ion-icon name="person-circle" routerLink='/profile' class="float-end fs-1"></ion-icon></ion-title>
+    <ion-title>circulars<ion-icon name="person-circle" routerLink='/profile' class="float-end fs-1"></ion-icon>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+  <div class="container h-100">
+    <div class="row h-100">
 
+        <!-- loader skeleton -->
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngIf="showLoader">
+        <div class="ion-padding custom-skeleton" *ngFor="let list of [1,2,3,4,5,6,7,8,9,0]">
+          <div class="d-flex justify-content-between align-items-center">
+          <ion-skeleton-text animated style="width: 20%; border-radius: 50%; height: 50px;"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 50%; height: 10px;"></ion-skeleton-text>
+          </div>
+          <ion-skeleton-text animated></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 100%; height: 60px;"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 100%; height: 70px;"></ion-skeleton-text>
+          <ion-skeleton-text animated style="width: 100%; height: 150px;"></ion-skeleton-text>
+        </div>
+      </div>
+
+      <!-- circulars -->
+
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let c of circulars">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle class="mb-5">
+              <span class="border border-1 px-3 py-2 rounded-circle shadow">D</span>
+              <span class="float-end">Informatio Tecnology</span>
+            </ion-card-subtitle>
+            <ion-card-title>Card Title</ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content class="overflow-auto" style="max-height: 25rem;">
+            Keep close to Nature's heart... and break clear away, once in awhile,
+            and climb a mountain or spend a week in the woods. Wash your spirit clean.
+            Keep close to Nature's heart... and break clear away, once in awhile,
+            and climb a mountain or spend a week in the woods. Wash your spirit clean.
+            Keep close to Nature's heart... and break clear away, once in awhile,
+            and climb a mountain or spend a week in the woods. Wash your spirit clean.
+            Keep close to Nature's heart... and break clear away, once in awhile,
+            and climb a mountain or spend a week in the woods. Wash your spirit clean.
+            Keep close to Nature's heart... and break clear away, once in awhile,
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+  </div>
 </ion-content>

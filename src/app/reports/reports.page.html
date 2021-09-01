@@ -1,9 +1,59 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>reports<ion-icon name="person-circle" routerLink='/profile' class="float-end fs-1"></ion-icon></ion-title>
+    <ion-title>reports<ion-icon name="person-circle" routerLink='/profile' class="float-end fs-1"></ion-icon>
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <div class="container">
+    <div class="row">
+      <!-- loader -->
+
+      <ng-container  *ngIf="showLoader">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let l of [1,1,1,1,1,1,1,1,1,1,1]">
+          <ion-list>
+            <ion-list-header>
+              <ion-label>
+                <ion-skeleton-text animated style="width: 20%"></ion-skeleton-text>
+              </ion-label>
+            </ion-list-header>
+            <ion-item>
+              <ion-thumbnail slot="start">
+                <ion-skeleton-text animated></ion-skeleton-text>
+              </ion-thumbnail>
+              <ion-label>
+                <h3>
+                  <ion-skeleton-text animated style="width: 50%"></ion-skeleton-text>
+                </h3>
+                <p>
+                  <ion-skeleton-text animated style="width: 80%"></ion-skeleton-text>
+                </p>
+                <p>
+                  <ion-skeleton-text animated style="width: 60%"></ion-skeleton-text>
+                </p>
+              </ion-label>
+            </ion-item>
+          </ion-list>
+        </div>
+
+      </ng-container>
+
+      <!-- reports list -->
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let r of reports">
+        <ion-card>
+          <ion-item>
+            <ion-icon name="list-circle" slot="start"></ion-icon>
+            <ion-label>ion-item in a card, icon left, button right</ion-label>
+            <ion-button fill="outline" slot="end">View</ion-button>
+          </ion-item>
+          <ion-card-content class="overflow-hidden text-nowrap text-truncate">
+            This is content, without any paragraph
+          </ion-card-content>
+        </ion-card>
+      </div>
+    </div>
+  </div>
 
 </ion-content>
