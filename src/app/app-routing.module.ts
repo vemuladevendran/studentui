@@ -21,6 +21,11 @@ const routes: Routes = [
     path: 'setpassword',
     loadChildren: () => import('./setpassword/setpassword.module').then(m => m.SetpasswordPageModule),
     // canActivate: [AuthGuard]
+  },
+  {
+    path: 'view-report/:id',
+    loadChildren: () => import('./view-reports/view-reports.module').then( m => m.ViewReportsPageModule)
+    // canActivate: [AuthGuard]
   }
 ];
 @NgModule({
