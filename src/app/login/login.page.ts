@@ -30,7 +30,6 @@ export class LoginPage implements OnInit {
       //  changing status
       this.showLoader = true;
       const data = await this.loginServe.studentLogin(this.loginForm.value);
-      console.log(data);
       this.tokenServe.saveToken(data.token);
       this.showLoader = false;
       this.router.navigate(['/circulars']);

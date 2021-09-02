@@ -21,7 +21,7 @@
             <span class="text-danger">{{errorMessage}}</span>
             <p class="text-end mt-3"><a class="text-dark" routerLink="/forgetpassword">Forget Password?</a></p>
             <div>
-              <ion-button class="w-100" color="medium" [disabled]="loginForm.invalid">Login <ion-spinner class="ms-3 text-dark" *ngIf="showLoader" name="crescent"></ion-spinner></ion-button>
+              <ion-button class="w-100" type="submit" color="medium" [disabled]="loginForm.invalid">Login <ion-spinner class="ms-3 text-dark" *ngIf="showLoader" name="crescent"></ion-spinner></ion-button>
             </div>
           </form>
         </div>

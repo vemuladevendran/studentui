@@ -18,7 +18,8 @@ export class CircularsPage implements OnInit {
   async getCircularList(): Promise<void> {
     try {
       this.showLoader = true;
-      this.circulars = await this.circularServe.getCircularsData();
+     const data = await this.circularServe.getCircularsData();
+     this.circulars = data;
       this.showLoader = false;
     } catch (error) {
       console.log(error);

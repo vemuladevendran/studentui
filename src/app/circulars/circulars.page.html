@@ -1,6 +1,6 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>circulars<ion-icon name="person-circle" routerLink='/profile' class="float-end fs-1"></ion-icon>
+    <ion-title>circulars <span class="float-end fs-1" title="profile" routerLink='/profile'><ion-icon name="person-circle" class="fs-1"></ion-icon></span>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -9,12 +9,12 @@
   <div class="container h-100">
     <div class="row h-100">
 
-        <!-- loader skeleton -->
+      <!-- loader skeleton -->
       <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngIf="showLoader">
         <div class="ion-padding custom-skeleton" *ngFor="let list of [1,2,3,4,5,6,7,8,9,0]">
           <div class="d-flex justify-content-between align-items-center">
-          <ion-skeleton-text animated style="width: 20%; border-radius: 50%; height: 50px;"></ion-skeleton-text>
-          <ion-skeleton-text animated style="width: 50%; height: 10px;"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 20%; border-radius: 50%; height: 50px;"></ion-skeleton-text>
+            <ion-skeleton-text animated style="width: 50%; height: 10px;"></ion-skeleton-text>
           </div>
           <ion-skeleton-text animated></ion-skeleton-text>
           <ion-skeleton-text animated style="width: 100%; height: 60px;"></ion-skeleton-text>
@@ -28,15 +28,22 @@
       <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let c of circulars">
         <ion-card>
           <ion-card-header>
-            <ion-card-subtitle class="mb-5">
-              <span class="border border-1 px-3 py-2 rounded-circle shadow" [title]="c.createdBy">D</span>
+            <ion-card-subtitle>
+              <span [title]="c.createdBy">
+                <ion-icon name="person" class="fs-1"></ion-icon>
+              </span>
               <span class="float-end">{{c.circularFor}}</span>
             </ion-card-subtitle>
-            <ion-card-title>{{c.circularTitle}}<ion-icon name="share-social" class="float-end fs-1"></ion-icon></ion-card-title>
+            <div class="mb-5">
+              <p class="m-0">createdAt : {{c.createdAt | date}}</p>
+              <p class="m-0">For : {{c.circularDate | date}}</p>
+            </div>
+            <ion-card-title>{{c.circularTitle}}<ion-icon name="share-social" class="float-end fs-1"></ion-icon>
+            </ion-card-title>
           </ion-card-header>
 
           <ion-card-content class="overflow-auto" style="max-height: 25rem;">
-           {{c.circularContent}}
+            {{c.circularContent}}
           </ion-card-content>
         </ion-card>
       </div>

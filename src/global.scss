@@ -29,3 +29,8 @@
 input:focus {
     border: 1px solid black !important;
 }
+
+ion-icon {
+    pointer-events: none;
+   }
+   

@@ -12,39 +12,39 @@
         <!-- profile image -->
         <div class="row">
           <div class="col-6">
-            <img src="/assets/default-profile.png" alt="profile" style="max-height: 15rem;">
+            <img [src]="profileData?.photo || '/assets/default-profile.png' " alt="profile" style="max-height: 15rem;">
           </div>
           <div class="col-6 text-center">
-            <p class="text-uppercase"> Devendran Vemula</p>
-            <p class="text-uppercase">2019pecit248</p>
-            <p>211419205038</p>
+            <p class="text-uppercase"> {{profileData?.firstName}} {{profileData?.lastName}}</p>
+            <p class="text-uppercase">{{profileData?.rollNumber}}</p>
+            <p>{{profileData?.examNumber}}</p>
           </div>
         </div>
         <hr>
         <!-- student details -->
         <div class="row">
-          <p class="col-12">Email: {{'devendranvemula@gmail.com'}}</p>
-          <p class="col-12">Gender: {{'Male'}}</p>
-          <p class="col-12">Mobile: {{'9445296380'}}</p>
-          <p class="col-12">DOB: {{'27/08/2002'}}</p>
-          <p class="col-12">Father's Name: {{'abcdef'}}</p>
-          <p class="col-12">Mother's Name: {{'dnjkdk'}}</p>
+          <p class="col-12">Email: {{profileData?.email}}</p>
+          <p class="col-12">Gender: {{profileData?.gender}}</p>
+          <p class="col-12">Mobile: {{profileData?.mobileNumber}}</p>
+          <p class="col-12">DOB: {{profileData?.dob}}</p>
+          <p class="col-12">Father's Name: {{profileData?.fatherName}}</p>
+          <p class="col-12">Mother's Name: {{profileData?.motherName}}</p>
           <hr>
           <h2 class="fw-bold text-center">Education Details</h2>
-          <p class="col-12">Year of 10th Passout: {{'2000'}}</p>
-          <p class="col-12">Year of 12th Passout: {{'2000'}}</p>
-          <p class="col-12">10th Mark Percentage: {{'88'}}</p>
-          <p class="col-12">12th Mark Percentage: {{'88'}}</p>
-          <p class="col-12">10th School Name: {{'Vivekananda'}}</p>
-          <p class="col-12">12th School Name: {{'Vivekananda'}}</p>
+          <p class="col-12">Year of 10th Passout: {{profileData?.yearOf10}}</p>
+          <p class="col-12">Year of 12th Passout: {{profileData?.yearOf12}}</p>
+          <p class="col-12">10th Mark Percentage: {{profileData?.markPercentageOf10}}</p>
+          <p class="col-12">12th Mark Percentage: {{profileData?.markPercentageOf12}}</p>
+          <p class="col-12" *ngIf="profileData?.nameOf10School !== ''">10th School Name: {{profileData?.nameOf10School}}</p>
+          <p class="col-12" *ngIf="profileData?.nameOf12School !== ''">12th School Name: {{profileData?.nameOf12School}}</p>
           <hr>
           <h2 class="fw-bold text-center">College Details</h2>
-          <p class="col-12">Year of college Joined :: {{'2000'}}</p>
-          <p class="col-12">Current Studing Year: {{'Fourth Year'}}</p>
-          <p class="col-12">Roll Number: {{'88'}}</p>
-          <p class="col-12">Exam Number: {{'211419205038'}}</p>
-          <p class="col-12">Branch: {{'Information Technology'}}</p>
-          <p class="col-12">Section: {{'b'}}</p>
+          <p class="col-12">Year of college Joined :: {{profileData?.yearOfCollegeJoined}}</p>
+          <p class="col-12">Current Studing Year: {{profileData?.currentStudingYear}}</p>
+          <p class="col-12">Roll Number: {{profileData?.rollNumber}}</p>
+          <p class="col-12">Exam Number: {{profileData?.examNumber}}</p>
+          <p class="col-12">Branch: {{profileData?.branch}}</p>
+          <p class="col-12 text-uppercase">Section: {{profileData?.section}}</p>
           <hr>
           <div class="row m-0">
             <div class="col-12 col-md-6 text-center">
