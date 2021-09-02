@@ -1,6 +1,8 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>circulars <span class="float-end fs-1" title="profile" routerLink='/profile'><ion-icon name="person-circle" class="fs-1"></ion-icon></span>
+    <ion-title>circulars <span class="float-end fs-1" title="profile" routerLink='/profile'>
+        <ion-icon name="person-circle" class="fs-1"></ion-icon>
+      </span>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -23,30 +25,36 @@
         </div>
       </div>
 
+      <!-- no content found -->
+      <h3 class="fw-bold d-flex justify-content-center align-items-center" *ngIf="circulars.length === 0">
+        ! Circulars Found
+      </h3>
       <!-- circulars -->
 
-      <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let c of circulars">
-        <ion-card>
-          <ion-card-header>
-            <ion-card-subtitle>
-              <span [title]="c.createdBy">
-                <ion-icon name="person" class="fs-1"></ion-icon>
-              </span>
-              <span class="float-end">{{c.circularFor}}</span>
-            </ion-card-subtitle>
-            <div class="mb-5">
-              <p class="m-0">createdAt : {{c.createdAt | date}}</p>
-              <p class="m-0">For : {{c.circularDate | date}}</p>
-            </div>
-            <ion-card-title>{{c.circularTitle}}<ion-icon name="share-social" class="float-end fs-1"></ion-icon>
-            </ion-card-title>
-          </ion-card-header>
+      <ng-container *ngIf="circulars.length !== 0">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let c of circulars">
+          <ion-card>
+            <ion-card-header>
+              <ion-card-subtitle>
+                <span [title]="c.createdBy">
+                  <ion-icon name="person" class="fs-1"></ion-icon>
+                </span>
+                <span class="float-end">{{c.circularFor}}</span>
+              </ion-card-subtitle>
+              <div class="mb-5">
+                <p class="m-0">createdAt : {{c.createdAt | date}}</p>
+                <p class="m-0">For : {{c.circularDate | date}}</p>
+              </div>
+              <ion-card-title>{{c.circularTitle}}<ion-icon name="share-social" class="float-end fs-1"></ion-icon>
+              </ion-card-title>
+            </ion-card-header>
 
-          <ion-card-content class="overflow-auto" style="max-height: 25rem;">
-            {{c.circularContent}}
-          </ion-card-content>
-        </ion-card>
-      </div>
+            <ion-card-content class="overflow-auto" style="max-height: 25rem;">
+              {{c.circularContent}}
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ng-container>
     </div>
   </div>
 </ion-content>

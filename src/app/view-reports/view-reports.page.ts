@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
+import { ReportsService } from '../services/reports/reports.service';
 
 @Component({
   selector: 'app-view-reports',
@@ -7,12 +8,24 @@ import { Router } from '@angular/router';
   styleUrls: ['./view-reports.page.scss'],
 })
 export class ViewReportsPage implements OnInit {
-
+  report: any = [];
   constructor(
-    private router: Router,
+    private route: ActivatedRoute,
+    private reportServe: ReportsService,
   ) { }
 
+  async getReportDetails(): Promise<void> {
+    try {
+      const id = this.route.snapshot.paramMap.get('id');
+      const data = await this.reportServe.getReportById(id);
+      this.report = data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   ngOnInit() {
+    this.getReportDetails();
   }
 
 }

@@ -12,26 +12,14 @@
     <div class="row">
       <div class="col-12">
         <h3 class="text-center fw-bold">
-          Absent
+          {{report?.reportTitle}}
         </h3>
-        <pre class="text-end">Reported By: <span class="me-2 fw-bold">Devendran</span></pre>
-        <p>
-          Dear students...No THT class at 11.45am .. mam having power shutdown problem... She will be schedule in the
-          today
-          evening
-          .. time will be intimate in what's app group
-          Dear students...No THT class at 11.45am .. mam having power shutdown problem... She will be schedule in the
-          today
-          evening
-          .. time will be intimate in what's app group
-          Dear students...No THT class at 11.45am .. mam having power shutdown problem... She will be schedule in the
-          today
-          evening
-          .. time will be intimate in what's app group
-          Dear students...No THT class at 11.45am .. mam having power shutdown problem... She will be schedule in the
-          today
-          evening
-          .. time will be intimate in what's app group
+        <pre class="text-end">Reported By: <span class="me-2 fw-bold">{{report?.createdBy}}</span></pre>
+        <p class="m-0">Created At: <span class="fw-bold">{{report?.createdAt | date}}</span></p>
+        <p class="m-0">Report Date: <span class="fw-bold">{{report?.reportDate | date}}</span></p>
+       <hr>
+        <p class="mt-4">
+          {{report?.reportContent}}
         </p>
       </div>
     </div>

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth/auth.service';
 import { ProfileService } from '../services/profile/profile.service';
 
 @Component({
@@ -11,15 +12,20 @@ export class ProfilePage implements OnInit {
   profileData: any = [];
   constructor(
     private profileServe: ProfileService,
+    private authServe: AuthService,
   ) { }
 
-  async getProfile(): Promise<void>{
+  async getProfile(): Promise<void> {
     try {
       const data = await this.profileServe.getProfileData();
       this.profileData = data;
     } catch (error) {
       console.log(error);
     }
+  }
+
+  logOut() {
+    this.authServe.logout();
   }
 
   ngOnInit() {

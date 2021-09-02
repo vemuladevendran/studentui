@@ -51,7 +51,7 @@
               <ion-button type="button" class="w-100" color="medium" routerLink="/update-password">Update Password</ion-button>
             </div>
             <div class="col-12 col-md-6 text-center">
-              <ion-button type="button" class="w-100">Log Out<ion-spinner class="ms-3 text-dark" *ngIf="showLogoutLoader" name="crescent"></ion-spinner></ion-button>
+              <ion-button type="button" class="w-100" (click)="logOut()">Log Out<ion-spinner class="ms-3 text-dark" *ngIf="showLogoutLoader" name="crescent"></ion-spinner></ion-button>
             </div>
           </div>
         </div>

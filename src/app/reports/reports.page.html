@@ -1,17 +1,17 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>reports<ion-icon name="person-circle" routerLink='/profile' class="float-end fs-1"></ion-icon>
+    <ion-title>reports <span class="float-end fs-1" title="profile" routerLink='/profile'><ion-icon name="person-circle" class="fs-1"></ion-icon></span>
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
 
-  <div class="container">
-    <div class="row">
+  <div class="container h-100">
+    <div class="row h-100">
       <!-- loader -->
 
-      <ng-container  *ngIf="showLoader">
+      <ng-container *ngIf="showLoader">
         <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let l of [1,1,1,1,1,1,1,1,1,1,1]">
           <ion-list>
             <ion-list-header>
@@ -40,19 +40,26 @@
 
       </ng-container>
 
+      <!-- no content found -->
+        <h3 class="fw-bold d-flex justify-content-center align-items-center" *ngIf="reports.length === 0">
+          ! Reports Found
+        </h3>
+
       <!-- reports list -->
-      <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let r of reports">
-        <ion-card>
-          <ion-item>
-            <ion-icon name="list-circle" slot="start"></ion-icon>
-            <ion-label>ion-item in a card, icon left, button right</ion-label>
-            <ion-button fill="outline" slot="end" (click)="viewReports('new')">View</ion-button>
-          </ion-item>
-          <ion-card-content class="overflow-hidden text-nowrap text-truncate">
-            This is content, without any paragraph
-          </ion-card-content>
-        </ion-card>
-      </div>
+      <ng-container *ngIf="reports.length !== 0">
+        <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let r of reports">
+          <ion-card>
+            <ion-item>
+              <ion-icon name="list-circle" slot="start"></ion-icon>
+              <ion-label>{{r.reportTitle}}</ion-label>
+              <ion-button fill="outline" slot="end" (click)="viewReports(r.id)">View</ion-button>
+            </ion-item>
+            <ion-card-content class="overflow-hidden text-nowrap text-truncate">
+              {{r.reportContent}}
+            </ion-card-content>
+          </ion-card>
+        </div>
+      </ng-container>
     </div>
   </div>
 
