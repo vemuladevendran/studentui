@@ -5,32 +5,32 @@ const routes: Routes = [
   {
     path: '',
     loadChildren: () => import('./tabs/tabs.module').then(m => m.TabsPageModule),
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'login',
     loadChildren: () => import('./login/login.module').then(m => m.LoginPageModule),
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'forgetpassword',
     loadChildren: () => import('./forgetpassword/forgetpassword.module').then(m => m.ForgetpasswordPageModule),
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'setpassword',
     loadChildren: () => import('./setpassword/setpassword.module').then(m => m.SetpasswordPageModule),
-    // canActivate: [AuthGuard]
+    canActivate: [AuthGuard]
   },
   {
     path: 'view-report/:id',
-    loadChildren: () => import('./view-reports/view-reports.module').then( m => m.ViewReportsPageModule)
-    // canActivate: [AuthGuard]
+    loadChildren: () => import('./view-reports/view-reports.module').then( m => m.ViewReportsPageModule),
+    canActivate: [AuthGuard]
   },
   {
     path: 'update-password',
-    loadChildren: () => import('./update-password/update-password.module').then( m => m.UpdatePasswordPageModule)
-    // canActivate: [AuthGuard]
+    loadChildren: () => import('./update-password/update-password.module').then( m => m.UpdatePasswordPageModule),
+    canActivate: [AuthGuard]
 
   }
 ];

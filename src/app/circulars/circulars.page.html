@@ -29,22 +29,14 @@
         <ion-card>
           <ion-card-header>
             <ion-card-subtitle class="mb-5">
-              <span class="border border-1 px-3 py-2 rounded-circle shadow">D</span>
-              <span class="float-end">Informatio Tecnology</span>
+              <span class="border border-1 px-3 py-2 rounded-circle shadow" [title]="c.createdBy">D</span>
+              <span class="float-end">{{c.circularFor}}</span>
             </ion-card-subtitle>
-            <ion-card-title>Card Title<ion-icon name="share-social" class="float-end fs-1"></ion-icon></ion-card-title>
+            <ion-card-title>{{c.circularTitle}}<ion-icon name="share-social" class="float-end fs-1"></ion-icon></ion-card-title>
           </ion-card-header>
 
           <ion-card-content class="overflow-auto" style="max-height: 25rem;">
-            Keep close to Nature's heart... and break clear away, once in awhile,
-            and climb a mountain or spend a week in the woods. Wash your spirit clean.
-            Keep close to Nature's heart... and break clear away, once in awhile,
-            and climb a mountain or spend a week in the woods. Wash your spirit clean.
-            Keep close to Nature's heart... and break clear away, once in awhile,
-            and climb a mountain or spend a week in the woods. Wash your spirit clean.
-            Keep close to Nature's heart... and break clear away, once in awhile,
-            and climb a mountain or spend a week in the woods. Wash your spirit clean.
-            Keep close to Nature's heart... and break clear away, once in awhile,
+           {{c.circularContent}}
           </ion-card-content>
         </ion-card>
       </div>

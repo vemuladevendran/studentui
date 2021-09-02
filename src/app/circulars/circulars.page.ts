@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CircularsService } from '../services/circulars/circulars.service';
 
 @Component({
   selector: 'app-circulars',
@@ -6,12 +7,28 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./circulars.page.scss'],
 })
 export class CircularsPage implements OnInit {
-  showLoader = true;
- circulars = Array(10).fill('');
+  errorMessage = '';
+  showLoader = false;
+  circulars: any[] = [];
 
-  constructor() { }
+  constructor(
+    private circularServe: CircularsService,
+  ) { }
+
+  async getCircularList(): Promise<void> {
+    try {
+      this.showLoader = true;
+      this.circulars = await this.circularServe.getCircularsData();
+      this.showLoader = false;
+    } catch (error) {
+      console.log(error);
+      this.errorMessage = error.error.message;
+      this.showLoader = false;
+    }
+  }
 
   ngOnInit() {
+    this.getCircularList();
   }
 
 }
