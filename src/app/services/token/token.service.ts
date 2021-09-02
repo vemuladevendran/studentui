@@ -4,8 +4,9 @@ import { Injectable } from '@angular/core';
   providedIn: 'root'
 })
 export class TokenService {
-  private tokenKey = 'AUTH_TOKEN';
+  tokenData: any;
 
+  private tokenKey = 'AUTH_TOKEN';
   constructor() { }
 
   saveToken(data: any): any {
@@ -23,5 +24,14 @@ export class TokenService {
 
   removeToken(): any {
     localStorage.removeItem(this.tokenKey);
+  }
+
+
+  getTokenData(): any {
+    const token = this.getToken();
+    const base64PayloadData = token.split('.')[1].split('.')[0];
+    const payload = Buffer.from(base64PayloadData, 'base64');
+    const data = JSON.parse(payload.toString()).data;
+    return (data);
   }
 }
