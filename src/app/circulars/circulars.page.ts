@@ -18,8 +18,8 @@ export class CircularsPage implements OnInit {
   async getCircularList(): Promise<void> {
     try {
       this.showLoader = true;
-     const data = await this.circularServe.getCircularsData();
-     this.circulars = data;
+      const data = await this.circularServe.getCircularsData();
+      this.circulars = data;
       this.showLoader = false;
     } catch (error) {
       console.log(error);
@@ -27,6 +27,16 @@ export class CircularsPage implements OnInit {
       this.showLoader = false;
     }
   }
+
+  getCircularUrls(content): void {
+    const urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
+    const text =  content?.match(urlRegex);
+    if(text === null){
+    return null;
+    }
+    return text[0].split(',');
+  }
+
 
   ngOnInit() {
     this.getCircularList();

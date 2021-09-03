@@ -51,6 +51,9 @@
 
             <ion-card-content class="overflow-auto" style="max-height: 25rem;">
               {{c.circularContent}}
+              <p>
+                <a target="_blank" [href]="getCircularUrls(c.circularContent)">{{getCircularUrls(c.circularContent)}}</a>
+              </p>
             </ion-card-content>
           </ion-card>
         </div>

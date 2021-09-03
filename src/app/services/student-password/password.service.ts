@@ -7,7 +7,6 @@ import { TokenService } from '../token/token.service';
   providedIn: 'root'
 })
 export class PasswordService {
-  studentToken = this.tokenServe.getTokenData();
   constructor(
     private http: HttpClient,
     private settings: SettingsService,
@@ -16,7 +15,9 @@ export class PasswordService {
 
 
 updatePassword(data: any): Promise<any> {
-  return this.http.post(`${this.settings.API_BASE_URL}/updatestudentpassword/${this.studentToken.id}`, data).toPromise();
+  const studentToken = this.tokenServe.getTokenData();
+
+  return this.http.post(`${this.settings.API_BASE_URL}/updatestudentpassword/${studentToken.id}`, data).toPromise();
 }
 
 forgetPassword(data: any): Promise<any>{

@@ -1,6 +1,8 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>marks <span class="float-end fs-1" title="profile" routerLink='/profile'><ion-icon name="person-circle" class="fs-1"></ion-icon></span>
+    <ion-title>marks <span class="float-end fs-1" title="profile" routerLink='/profile'>
+        <ion-icon name="person-circle" class="fs-1"></ion-icon>
+      </span>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -27,27 +29,30 @@
           <ion-skeleton-text animated></ion-skeleton-text>
         </div>
       </div>
-      
+
       <!-- marks list -->
-      <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let m of marks">
+      <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let m of marksData">
         <ion-card>
           <ion-card-header>
-            <ion-card-subtitle><span class="float-end">Created By: Admin</span></ion-card-subtitle>
-            <ion-card-title>Internal 1</ion-card-title>
+            <ion-card-subtitle>
+              <span class="">Created By:
+                {{m?.createdBy}}</span>
+              <span class="float-end">{{m?.createdAt | date}}</span>
+            </ion-card-subtitle>
+
           </ion-card-header>
+          <ion-card-title>{{m.examName}}</ion-card-title>
 
           <ion-card-content>
-            <div class="overflow-auto" style="max-height: 11rem;">
-              <p><span>Maths : 50</span><span class="float-end">P</span></p>
-              <p><span>Maths : 50</span><span class="float-end">P</span></p>
-              <p><span>Maths : 50</span><span class="float-end">P</span></p>
-              <p><span>Maths : 50</span><span class="float-end">P</span></p>
-              <p><span>Maths : 50</span><span class="float-end">P</span></p>
-              <p><span>Maths : 50</span><span class="float-end">P</span></p>
-              <p><span>Maths : 50</span><span class="float-end">P</span></p>
+            <div class="overflow-auto">
+              <div class="d-flex" *ngFor="let l of m.subjectsMarks | keyvalue">
+                <p class="col-8">{{l.key}}</p>
+                <p class="col-2">{{l.value}}</p>
+                <p class="col-2">{{l.value >= 50 ? 'P' : 'F'}}</p>
+              </div>
             </div>
             <hr>
-            <p>total : 350</p>
+            <p>Total : {{totalMarks}} </p>
 
           </ion-card-content>
         </ion-card>
