@@ -9,7 +9,7 @@
 
 <ion-content>
   <div class="container h-100">
-    <div class="row h-100">
+    <div class="row justify-content-center h-100">
 
       <!-- loader skeleton -->
       <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngIf="showLoader">
@@ -24,6 +24,27 @@
           <ion-skeleton-text animated style="width: 100%; height: 150px;"></ion-skeleton-text>
         </div>
       </div>
+
+      <!-- default password circular -->
+
+
+      <div *ngIf="!defaultPasswordToken">
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>
+              Technical Info
+            </ion-card-subtitle>
+            <ion-card-title>Default Password<ion-button (click)="removeDefaultPasswordMessage()" class="float-end" fill="outline">Close</ion-button>
+            </ion-card-title>
+          </ion-card-header>
+
+          <ion-card-content class="overflow-auto" style="max-height: 25rem;">
+          This is Inform to all the Students to pleace change your default password.
+          To avoid the issue. It avoids the students to login others accounts.
+          </ion-card-content>
+        </ion-card>
+      </div>
+
 
       <!-- no content found -->
       <h3 class="fw-bold d-flex justify-content-center align-items-center" *ngIf="circulars.length === 0">

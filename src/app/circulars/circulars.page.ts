@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { CircularsService } from '../services/circulars/circulars.service';
+import { TokenService } from '../services/token/token.service';
 
 @Component({
   selector: 'app-circulars',
@@ -10,9 +11,10 @@ export class CircularsPage implements OnInit {
   errorMessage = '';
   showLoader = false;
   circulars: any[] = [];
-
+  defaultPasswordToken = false;
   constructor(
     private circularServe: CircularsService,
+    private tokenServe: TokenService,
   ) { }
 
   async getCircularList(): Promise<void> {
@@ -37,9 +39,19 @@ export class CircularsPage implements OnInit {
     return text[0].split(',');
   }
 
+  setDefaultPasswordMessage(): any{
+    this.defaultPasswordToken = this.tokenServe.isCircularTokenExist();
+  }
+
+  removeDefaultPasswordMessage(): any {
+    this.tokenServe.saveCircularToken();
+    this.setDefaultPasswordMessage();
+  }
+
 
   ngOnInit() {
     this.getCircularList();
+    this.setDefaultPasswordMessage();
   }
 
 }

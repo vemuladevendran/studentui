@@ -6,6 +6,8 @@ import { Injectable } from '@angular/core';
 export class TokenService {
   tokenData: any;
   private tokenKey = 'AUTH_TOKEN';
+  private circularTokenKey = 'CIRCULAR';
+
   constructor() { }
 
   saveToken(data: any): any {
@@ -30,5 +32,20 @@ export class TokenService {
     const token = this.getToken();
     const payload = JSON.parse(atob(token.split('.')[1])).data;
     return (payload);
+  }
+
+
+  // circular token
+
+  saveCircularToken(): any{
+    localStorage.setItem(this.circularTokenKey, 'new student');
+  }
+
+  getCircularToken(): string {
+    return localStorage.getItem(this.circularTokenKey) as string;
+  }
+
+  isCircularTokenExist(): boolean{
+    return !!this.getCircularToken();
   }
 }
