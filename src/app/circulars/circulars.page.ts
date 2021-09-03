@@ -38,6 +38,21 @@ export class CircularsPage implements OnInit {
     }
     return text[0].split(',');
   }
+  // share circular
+  async shareCircular(circularTitle: any, content: any): Promise<any> {
+    const shareData = {
+      title: circularTitle,
+      text: content,
+      url: this.getCircularUrls(content) as any,
+    };
+
+    try {
+      await navigator.share(shareData);
+      console.log('Data was shared successfully');
+    } catch (error) {
+      console.error('Share failed:', error.message);
+    }
+  }
 
   setDefaultPasswordMessage(): any{
     this.defaultPasswordToken = this.tokenServe.isCircularTokenExist();

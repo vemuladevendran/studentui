@@ -34,13 +34,14 @@
             <ion-card-subtitle>
               Technical Info
             </ion-card-subtitle>
-            <ion-card-title>Default Password<ion-button (click)="removeDefaultPasswordMessage()" class="float-end" fill="outline">Close</ion-button>
+            <ion-card-title>Default Password<ion-button (click)="removeDefaultPasswordMessage()" class="float-end"
+                fill="outline">Close</ion-button>
             </ion-card-title>
           </ion-card-header>
 
           <ion-card-content class="overflow-auto" style="max-height: 25rem;">
-          This is Inform to all the Students to pleace change your default password.
-          To avoid the issue. It avoids the students to login others accounts.
+            This is Inform to all the Students to please change your default password.
+            To avoid the issue. It avoids the students to login others accounts.
           </ion-card-content>
         </ion-card>
       </div>
@@ -66,14 +67,18 @@
                 <p class="m-0">createdAt : {{c.createdAt | date}}</p>
                 <p class="m-0">For : {{c.circularDate | date}}</p>
               </div>
-              <ion-card-title>{{c.circularTitle}}<ion-icon name="share-social" class="float-end fs-1"></ion-icon>
+              <ion-card-title>{{c.circularTitle}}
+                <button class="float-end fs-1 bg-transparent" (click)="shareCircular(c.circularTitle, c.circularContent)">
+                  <ion-icon name="share-social"></ion-icon>
+                </button>
               </ion-card-title>
             </ion-card-header>
 
             <ion-card-content class="overflow-auto" style="max-height: 25rem;">
               {{c.circularContent}}
               <p>
-                <a target="_blank" [href]="getCircularUrls(c.circularContent)">{{getCircularUrls(c.circularContent)}}</a>
+                <a target="_blank"
+                  [href]="getCircularUrls(c.circularContent)">{{getCircularUrls(c.circularContent)}}</a>
               </p>
             </ion-card-content>
           </ion-card>
