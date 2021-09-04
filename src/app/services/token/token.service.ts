@@ -7,6 +7,7 @@ export class TokenService {
   tokenData: any;
   private tokenKey = 'AUTH_TOKEN';
   private circularTokenKey = 'CIRCULAR';
+  private darkModeTokenKey = 'DARK_MODE';
 
   constructor() { }
 
@@ -47,5 +48,16 @@ export class TokenService {
 
   isCircularTokenExist(): boolean{
     return !!this.getCircularToken();
+  }
+
+
+  // dark mode toke
+
+  setDarkModeToken(data: any){
+    localStorage.setItem(this.darkModeTokenKey,(data ? 1 : 0) as any);
+  }
+
+  getDarkModeToken(): string {
+    return (!!+localStorage.getItem(this.darkModeTokenKey) as any);
   }
 }

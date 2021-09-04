@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { CircularsService } from '../services/circulars/circulars.service';
 import { TokenService } from '../services/token/token.service';
-
+import { Share } from '@capacitor/share';
+import { Url, UrlObject } from 'url';
 @Component({
   selector: 'app-circulars',
   templateUrl: './circulars.page.html',
@@ -32,9 +33,9 @@ export class CircularsPage implements OnInit {
 
   getCircularUrls(content): void {
     const urlRegex = /(((https?:\/\/)|(www\.))[^\s]+)/g;
-    const text =  content?.match(urlRegex);
-    if(text === null){
-    return null;
+    const text = content?.match(urlRegex);
+    if (text === null) {
+      return null;
     }
     return text[0].split(',');
   }
@@ -42,19 +43,19 @@ export class CircularsPage implements OnInit {
   async shareCircular(circularTitle: any, content: any): Promise<any> {
     const shareData = {
       title: circularTitle,
-      text: content,
+      text: circularTitle + ' : ' + content,
       url: this.getCircularUrls(content) as any,
     };
 
     try {
-      await navigator.share(shareData);
+      await Share.share(shareData);
       console.log('Data was shared successfully');
     } catch (error) {
       console.error('Share failed:', error.message);
     }
   }
 
-  setDefaultPasswordMessage(): any{
+  setDefaultPasswordMessage(): any {
     this.defaultPasswordToken = this.tokenServe.isCircularTokenExist();
   }
 

@@ -1,6 +1,6 @@
 {
-	"appId": "io.ionic.starter",
-	"appName": "student-portal",
+	"appId": "io.devendran.student",
+	"appName": "student",
 	"webDir": "www",
 	"bundledWebRuntime": false
 }

@@ -1,6 +1,8 @@
-import { Component, OnInit, Renderer2 } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth/auth.service';
+import { DarkModeService } from '../services/darkMode/dark-mode.service';
 import { ProfileService } from '../services/profile/profile.service';
+import { TokenService } from '../services/token/token.service';
 
 @Component({
   selector: 'app-profile',
@@ -10,11 +12,12 @@ import { ProfileService } from '../services/profile/profile.service';
 export class ProfilePage implements OnInit {
   showLogoutLoader = false;
   profileData: any = [];
-  darkMode: boolean;
+  darkMode: any;
   constructor(
     private profileServe: ProfileService,
     private authServe: AuthService,
-    private renderer: Renderer2,
+    private tokenServe: TokenService,
+    private darkModeServe: DarkModeService,
   ) { }
 
   async getProfile(): Promise<void> {
@@ -28,11 +31,13 @@ export class ProfilePage implements OnInit {
 
   onToggleColorTheme(event) {
     if (event.detail.checked) {
-      this.renderer.setAttribute(document.body, 'color-theme', 'dark');
       this.darkMode = true;
+      this.tokenServe.setDarkModeToken(true);
+      this.darkModeServe.setDarkMode();
     } else {
-      this.renderer.setAttribute(document.body, 'color-theme', 'light');
       this.darkMode = false;
+      this.tokenServe.setDarkModeToken(false);
+      this.darkModeServe.setDarkMode();
     }
   }
 
@@ -42,6 +47,7 @@ export class ProfilePage implements OnInit {
 
   ngOnInit() {
     this.getProfile();
+    this.darkMode = this.darkModeServe.getDarkModeToken();
   }
 
 }

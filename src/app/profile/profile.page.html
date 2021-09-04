@@ -5,7 +5,7 @@
       <span class="float-end mt-1" *ngIf="!darkMode">🌞</span>
       <span class="float-end mt-1" *ngIf="darkMode">🌙</span>
       <span class="float-end">
-        <ion-toggle (ionChange)="onToggleColorTheme($event)"></ion-toggle>
+        <ion-toggle [checked]="darkMode" (ionChange)="onToggleColorTheme($event)"></ion-toggle>
       </span>
 
     </ion-title>

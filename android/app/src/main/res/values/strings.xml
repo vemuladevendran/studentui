@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">student-portal</string>
-    <string name="title_activity_main">student-portal</string>
-    <string name="package_name">io.ionic.starter</string>
-    <string name="custom_url_scheme">io.ionic.starter</string>
+    <string name="app_name">student</string>
+    <string name="title_activity_main">student</string>
+    <string name="package_name">io.devendran.student</string>
+    <string name="custom_url_scheme">io.devendran.student</string>
 </resources>
