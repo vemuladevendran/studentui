@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Renderer2 } from '@angular/core';
 import { AuthService } from '../services/auth/auth.service';
 import { ProfileService } from '../services/profile/profile.service';
 
@@ -13,6 +13,7 @@ export class ProfilePage implements OnInit {
   constructor(
     private profileServe: ProfileService,
     private authServe: AuthService,
+    private renderer: Renderer2,
   ) { }
 
   async getProfile(): Promise<void> {
@@ -21,6 +22,14 @@ export class ProfilePage implements OnInit {
       this.profileData = data;
     } catch (error) {
       console.log(error);
+    }
+  }
+
+  onToggleColorTheme(event) {
+    if (event.detail.checked) {
+      this.renderer.setAttribute(document.body, 'color-theme', 'dark');
+    } else {
+      this.renderer.setAttribute(document.body, 'color-theme', 'light');
     }
   }
 
