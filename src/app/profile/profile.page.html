@@ -1,6 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>profile</ion-title> <ion-toggle (ionChange)="onToggleColorTheme($event)" slot="end"></ion-toggle>
+    <ion-title>profile
+
+      <span class="float-end mt-1" *ngIf="!darkMode">🌞</span>
+      <span class="float-end mt-1" *ngIf="darkMode">🌙</span>
+      <span class="float-end">
+        <ion-toggle (ionChange)="onToggleColorTheme($event)"></ion-toggle>
+      </span>
+
+    </ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -35,8 +43,10 @@
           <p class="col-12">Year of 12th Passout: {{profileData?.yearOf12}}</p>
           <p class="col-12">10th Mark Percentage: {{profileData?.markPercentageOf10}}</p>
           <p class="col-12">12th Mark Percentage: {{profileData?.markPercentageOf12}}</p>
-          <p class="col-12" *ngIf="profileData?.nameOf10School !== ''">10th School Name: {{profileData?.nameOf10School}}</p>
-          <p class="col-12" *ngIf="profileData?.nameOf12School !== ''">12th School Name: {{profileData?.nameOf12School}}</p>
+          <p class="col-12" *ngIf="profileData?.nameOf10School !== ''">10th School Name: {{profileData?.nameOf10School}}
+          </p>
+          <p class="col-12" *ngIf="profileData?.nameOf12School !== ''">12th School Name: {{profileData?.nameOf12School}}
+          </p>
           <hr>
           <h2 class="fw-bold text-center">College Details</h2>
           <p class="col-12">Year of college Joined :: {{profileData?.yearOfCollegeJoined}}</p>
@@ -48,10 +58,13 @@
           <hr>
           <div class="row m-0">
             <div class="col-12 col-md-6 text-center">
-              <ion-button type="button" class="w-100" color="medium" routerLink="/update-password">Update Password</ion-button>
+              <ion-button type="button" class="w-100" color="medium" routerLink="/update-password">Update Password
+              </ion-button>
             </div>
             <div class="col-12 col-md-6 text-center">
-              <ion-button type="button" class="w-100" (click)="logOut()">Log Out<ion-spinner class="ms-3 text-dark" *ngIf="showLogoutLoader" name="crescent"></ion-spinner></ion-button>
+              <ion-button type="button" class="w-100" (click)="logOut()">Log Out<ion-spinner class="ms-3 text-dark"
+                  *ngIf="showLogoutLoader" name="crescent"></ion-spinner>
+              </ion-button>
             </div>
           </div>
           <hr>

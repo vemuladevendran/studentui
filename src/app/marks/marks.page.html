@@ -30,6 +30,11 @@
         </div>
       </div>
 
+       <!-- no content found -->
+       <h3 class="fw-bold d-flex justify-content-center align-items-center" *ngIf="marksData.length === 0">
+        ! Marks Not Found
+      </h3>
+
       <!-- marks list -->
       <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let m of marksData">
         <ion-card>

@@ -10,6 +10,7 @@ import { ProfileService } from '../services/profile/profile.service';
 export class ProfilePage implements OnInit {
   showLogoutLoader = false;
   profileData: any = [];
+  darkMode: boolean;
   constructor(
     private profileServe: ProfileService,
     private authServe: AuthService,
@@ -28,8 +29,10 @@ export class ProfilePage implements OnInit {
   onToggleColorTheme(event) {
     if (event.detail.checked) {
       this.renderer.setAttribute(document.body, 'color-theme', 'dark');
+      this.darkMode = true;
     } else {
       this.renderer.setAttribute(document.body, 'color-theme', 'light');
+      this.darkMode = false;
     }
   }
 
