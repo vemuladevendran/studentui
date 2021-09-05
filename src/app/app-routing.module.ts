@@ -32,6 +32,10 @@ const routes: Routes = [
     loadChildren: () => import('./update-password/update-password.module').then( m => m.UpdatePasswordPageModule),
     canActivate: [AuthGuard]
 
+  },
+  {
+    path: 'privacy-policy',
+    loadChildren: () => import('./privacy-policy/privacy-policy.module').then( m => m.PrivacyPolicyPageModule)
   }
 ];
 @NgModule({
