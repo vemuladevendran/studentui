@@ -28,6 +28,7 @@
     "@capacitor/filesystem": "^1.0.2",
     "@capacitor/haptics": "1.0.2",
     "@capacitor/keyboard": "1.0.2",
+    "@capacitor/push-notifications": "^1.0.4",
     "@capacitor/share": "^1.0.4",
     "@capacitor/storage": "^1.0.3",
     "@ionic-native/theme-detection": "^5.36.0",

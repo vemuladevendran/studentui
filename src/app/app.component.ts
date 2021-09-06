@@ -3,6 +3,12 @@ import { Component, OnInit } from '@angular/core';
 import { DarkModeService } from './services/darkMode/dark-mode.service';
 import { Platform, AlertController } from '@ionic/angular';
 import { Location } from '@angular/common';
+import {
+  ActionPerformed,
+  PushNotificationSchema,
+  PushNotifications,
+  Token,
+} from '@capacitor/push-notifications';
 @Component({
   selector: 'app-root',
   templateUrl: 'app.component.html',
@@ -18,6 +24,9 @@ export class AppComponent implements OnInit {
     this.initializeApp();
   }
 
+
+
+  //  exit alert
 
   initializeApp() {
 
@@ -79,10 +88,45 @@ export class AppComponent implements OnInit {
   }
 
 
+  // push notification
+
+  pushNotification() {
+    PushNotifications.requestPermissions().then(result => {
+      if (result.receive === 'granted') {
+        console.log('granted');
+        PushNotifications.register();
+      } else {
+        console.log('not granted');
+      }
+    });
+
+    // PushNotifications.addListener('registration', (token: Token) => {
+    //   alert('Push registration success, token: ' + token.value);
+    // });
+
+    PushNotifications.addListener('registrationError', (error: any) => {
+      alert('Error on registration: ' + JSON.stringify(error));
+    });
+
+    PushNotifications.addListener(
+      'pushNotificationReceived',
+      (notification: PushNotificationSchema) => {
+        const title = JSON.stringify(notification.title);
+        const message = JSON.stringify(notification.body);
+        alert(
+          `${title}
+           ${message} `
+        );
+      },
+    );
+
+  }
+
 
 
   ngOnInit() {
     this.darkModeServe.setDarkMode();
+    this.pushNotification();
   }
 
 

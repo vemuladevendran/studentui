@@ -42,10 +42,9 @@ export class CircularsPage implements OnInit {
   // share circular
   async shareCircular(circularTitle: any, content: any): Promise<any> {
     const shareData = {
-      // title: circularTitle,
-      // text: circularTitle + ' : ' + content,
-      // url: this.getCircularUrls(content) as any,
-      url: window.location.href,
+      title: circularTitle,
+      text: circularTitle + ' : ' + content,
+      url: this.getCircularUrls(content) as any,
     };
 
     try {
@@ -69,7 +68,5 @@ export class CircularsPage implements OnInit {
   ngOnInit() {
     this.getCircularList();
     this.setDefaultPasswordMessage();
-    console.log(window.location.href + 'hi..................');
-  }
-
+  };
 }
