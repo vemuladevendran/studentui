@@ -10,6 +10,8 @@ import { TokenService } from '../services/token/token.service';
   styleUrls: ['./profile.page.scss'],
 })
 export class ProfilePage implements OnInit {
+  date = new Date();
+  currentYear = this.date.getUTCFullYear();
   showLogoutLoader = false;
   profileData: any = [];
   darkMode: any;

@@ -3,6 +3,8 @@ import { Component, OnInit } from '@angular/core';
 import { DarkModeService } from './services/darkMode/dark-mode.service';
 import { Platform, AlertController } from '@ionic/angular';
 import { Location } from '@angular/common';
+import { ScreenOrientation } from '@ionic-native/screen-orientation/ngx';
+
 import {
   ActionPerformed,
   PushNotificationSchema,
@@ -100,9 +102,6 @@ export class AppComponent implements OnInit {
       }
     });
 
-    // PushNotifications.addListener('registration', (token: Token) => {
-    //   alert('Push registration success, token: ' + token.value);
-    // });
 
     PushNotifications.addListener('registrationError', (error: any) => {
       alert('Error on registration: ' + JSON.stringify(error));

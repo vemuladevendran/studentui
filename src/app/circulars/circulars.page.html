@@ -3,6 +3,9 @@
     <ion-title>circulars <span class="float-end fs-1" title="profile" routerLink='/profile'>
         <ion-icon name="person-circle" class="fs-1"></ion-icon>
       </span>
+      <span class="float-end fs-1 me-3" (click)="refreshPage()">
+        <ion-icon name="refresh-circle"></ion-icon>
+      </span>
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -64,7 +67,7 @@
                 <span class="float-end text-uppercase">{{c.circularFor}}</span>
               </ion-card-subtitle>
               <div class="mb-5">
-                <p class="m-0">createdAt : {{c.createdAt | date}}</p>
+                <span class="m-0">createdAt : {{c.createdAt | date}}</span> <span *ngIf="(c.createdAt | date) === (currentDate | date)" class="float-end"><ion-button fill="outline" slot="end">New</ion-button></span>
                 <p class="m-0">For : {{c.circularDate | date}}</p>
               </div>
               <ion-card-title>{{c.circularTitle}}

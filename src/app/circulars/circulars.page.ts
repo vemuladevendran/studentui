@@ -9,6 +9,7 @@ import { Url, UrlObject } from 'url';
   styleUrls: ['./circulars.page.scss'],
 })
 export class CircularsPage implements OnInit {
+  currentDate = Date.now();
   errorMessage = '';
   showLoader = false;
   circulars: any[] = [];
@@ -62,6 +63,10 @@ export class CircularsPage implements OnInit {
   removeDefaultPasswordMessage(): any {
     this.tokenServe.saveCircularToken();
     this.setDefaultPasswordMessage();
+  }
+
+  refreshPage() {
+    window.location.reload();
   }
 
 
