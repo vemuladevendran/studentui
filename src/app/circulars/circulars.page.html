@@ -1,19 +1,28 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>circulars <span class="float-end fs-1" title="profile" routerLink='/profile'>
+    <ion-title>
+      circulars <span class="float-end fs-1" title="profile" routerLink='/profile'>
         <ion-icon name="person-circle" class="fs-1"></ion-icon>
       </span>
       <span class="float-end fs-1 me-3" (click)="refreshPage()">
         <ion-icon name="refresh-circle"></ion-icon>
       </span>
     </ion-title>
+    <div class="d-flex align-items-center border border-Secondary">
+      <input type="text" placeholder="Search.. 👀" #search class="bg-transparent w-100 border-0 py-2" (change)="onSearch($event)">
+      <button  (click)="clearSearch()" class="bg-transparent">
+        <ion-icon name="close" class="fs-2 px-3"></ion-icon>
+      </button>
+    </div>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
-  <div class="container h-100">
+  <!-- <span href="#top" class="fs-1">
+    ▲
+  </span> -->
+  <div class="container h-100" id="top">
     <div class="row justify-content-center h-100">
-
       <!-- loader skeleton -->
       <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngIf="showLoader">
         <div class="ion-padding custom-skeleton" *ngFor="let list of [1,2,3,4,5,6,7,8,9,0]">
@@ -57,6 +66,8 @@
       <!-- circulars -->
 
       <ng-container *ngIf="circulars.length !== 0">
+
+
         <div class="col-12 col-md-6 col-lg-4 col-xl-3" *ngFor="let c of circulars">
           <ion-card>
             <ion-card-header>
@@ -67,7 +78,10 @@
                 <span class="float-end text-uppercase">{{c.circularFor}}</span>
               </ion-card-subtitle>
               <div class="mb-5">
-                <span class="m-0">createdAt : {{c.createdAt | date}}</span> <span *ngIf="(c.createdAt | date) === (currentDate | date)" class="float-end"><ion-button fill="outline" slot="end">New</ion-button></span>
+                <span class="m-0">createdAt : {{c.createdAt | date}}</span> <span
+                  *ngIf="(c.createdAt | date) === (currentDate | date)" class="float-end">
+                  <ion-button fill="outline" slot="end">New</ion-button>
+                </span>
                 <p class="m-0">For : {{c.circularDate | date}}</p>
               </div>
               <ion-card-title>{{c.circularTitle}}

@@ -1,14 +1,18 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { CircularsService } from '../services/circulars/circulars.service';
 import { TokenService } from '../services/token/token.service';
 import { Share } from '@capacitor/share';
-import { Url, UrlObject } from 'url';
+import { Router } from '@angular/router';
+
 @Component({
   selector: 'app-circulars',
   templateUrl: './circulars.page.html',
   styleUrls: ['./circulars.page.scss'],
 })
+
 export class CircularsPage implements OnInit {
+@ViewChild('search') search: ElementRef;
+
   currentDate = Date.now();
   errorMessage = '';
   showLoader = false;
@@ -17,7 +21,9 @@ export class CircularsPage implements OnInit {
   constructor(
     private circularServe: CircularsService,
     private tokenServe: TokenService,
+    private router: Router,
   ) { }
+
 
   async getCircularList(): Promise<void> {
     try {
@@ -70,8 +76,28 @@ export class CircularsPage implements OnInit {
   }
 
 
+  async onSearch(event): Promise<void> {
+    const searchName = event.target.value;
+    const data = await this.circularServe.getCircularsData();
+    if (searchName !== '') {
+      const filteredCirculars = data.filter(
+        (c) => c.circularTitle.toLowerCase().indexOf(searchName.toLowerCase()) !== -1
+      );
+      this.circulars = filteredCirculars;
+      console.log(filteredCirculars);
+      return;
+    }
+    this.circulars = await this.circularServe.getCircularsData();
+  }
+
+  async clearSearch(): Promise<void> {
+    this.search.nativeElement.value = '';
+    this.circulars = await this.circularServe.getCircularsData();
+    }
+
   ngOnInit() {
     this.getCircularList();
     this.setDefaultPasswordMessage();
   };
+
 }
