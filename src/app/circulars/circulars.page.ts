@@ -11,7 +11,7 @@ import { Router } from '@angular/router';
 })
 
 export class CircularsPage implements OnInit {
-@ViewChild('search') search: ElementRef;
+  @ViewChild('search') search: ElementRef;
 
   currentDate = Date.now();
   errorMessage = '';
@@ -84,16 +84,19 @@ export class CircularsPage implements OnInit {
         (c) => c.circularTitle.toLowerCase().indexOf(searchName.toLowerCase()) !== -1
       );
       this.circulars = filteredCirculars;
-      console.log(filteredCirculars);
       return;
     }
     this.circulars = await this.circularServe.getCircularsData();
   }
 
   async clearSearch(): Promise<void> {
-    this.search.nativeElement.value = '';
-    this.circulars = await this.circularServe.getCircularsData();
+
+    if (this.search.nativeElement.value !== '') {
+      this.search.nativeElement.value = '';
+      this.circulars = await this.circularServe.getCircularsData();
     }
+    return;
+  }
 
   ngOnInit() {
     this.getCircularList();
