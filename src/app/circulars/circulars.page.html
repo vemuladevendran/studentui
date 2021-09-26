@@ -1,16 +1,14 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>
+    <ion-title class="py-3">
       circulars <span class="float-end fs-1" title="profile" routerLink='/profile'>
         <ion-icon name="person-circle" class="fs-1"></ion-icon>
       </span>
-      <span class="float-end fs-1 me-3" (click)="refreshPage()">
-        <ion-icon name="refresh-circle"></ion-icon>
-      </span>
     </ion-title>
-    <div class="d-flex align-items-center border border-Secondary">
-      <input type="text" placeholder="Search.. 👀" #search class="bg-transparent w-100 border-0 py-2" (change)="onSearch($event)">
-      <button  (click)="clearSearch()" class="bg-transparent">
+    <div class="d-flex align-items-center justify-content-between bg-transparent">
+      <input type="search" placeholder="Search.. 👀" #search class="search-input bg-transparent py-2"
+        (change)="onSearch($event)">
+      <button (click)="clearSearch()" class="bg-transparent">
         <ion-icon name="close" class="fs-2 px-3"></ion-icon>
       </button>
     </div>
@@ -18,9 +16,10 @@
 </ion-header>
 
 <ion-content>
-  <!-- <span href="#top" class="fs-1">
-    ▲
-  </span> -->
+  <ion-refresher slot="fixed" (ionRefresh)="refreshPage($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
+
   <div class="container h-100" id="top">
     <div class="row justify-content-center h-100">
       <!-- loader skeleton -->
@@ -57,6 +56,19 @@
           </ion-card-content>
         </ion-card>
       </div>
+
+      <!-- app link in web site -->
+
+      <!-- <div>
+        <ion-card>
+          <ion-card-content class="overflow-auto d-flex align-items-center justify-content-between" style="max-height: 25rem;">
+           <span class="fw-bold">GET APP ON</span>
+          <span>
+            <a href="https://play.google.com/store/apps/details?id=io.devendran.student" target="_blanck"><img src="/assets/get-android-app.svg" alt="Play Store"></a>
+          </span>
+          </ion-card-content>
+        </ion-card>
+      </div> -->
 
 
       <!-- no content found -->

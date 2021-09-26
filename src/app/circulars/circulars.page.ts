@@ -71,8 +71,9 @@ export class CircularsPage implements OnInit {
     this.setDefaultPasswordMessage();
   }
 
-  refreshPage() {
+  refreshPage(event) {
     window.location.reload();
+    event.target.complete();
   }
 
 

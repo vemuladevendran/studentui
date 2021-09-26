@@ -30,6 +30,11 @@ export class MarksPage implements OnInit {
   }
 
 
+  refreshPage(event) {
+    window.location.reload();
+    event.target.complete();
+  }
+
 
   ngOnInit() {
     this.getMarksList();
