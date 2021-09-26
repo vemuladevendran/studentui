@@ -1,12 +1,15 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title class="py-3">
+    <ion-title class="py-3" *ngIf="!showSearchBar">
       circulars <span class="float-end fs-1" title="profile" routerLink='/profile'>
         <ion-icon name="person-circle" class="fs-1"></ion-icon>
       </span>
+      <span class="float-end fs-1 me-3" (click)="toggleSearchBar()">
+        <ion-icon name="search-circle"></ion-icon>
+      </span>
     </ion-title>
-    <div class="d-flex align-items-center justify-content-between bg-transparent">
-      <input type="search" placeholder="Search.. 👀" #search class="search-input bg-transparent py-2"
+    <div class="d-flex align-items-center justify-content-between bg-transparent" *ngIf="showSearchBar">
+      <input type="search" placeholder="Search.. 👀" #search class="search-input w-100 border bg-transparent py-2"
         (change)="onSearch($event)">
       <button (click)="clearSearch()" class="bg-transparent">
         <ion-icon name="close" class="fs-2 px-3"></ion-icon>
@@ -19,7 +22,6 @@
   <ion-refresher slot="fixed" (ionRefresh)="refreshPage($event)">
     <ion-refresher-content></ion-refresher-content>
   </ion-refresher>
-
   <div class="container h-100" id="top">
     <div class="row justify-content-center h-100">
       <!-- loader skeleton -->

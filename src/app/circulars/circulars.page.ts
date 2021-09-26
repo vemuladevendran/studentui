@@ -18,6 +18,7 @@ export class CircularsPage implements OnInit {
   showLoader = false;
   circulars: any[] = [];
   defaultPasswordToken = false;
+  showSearchBar = false;
   constructor(
     private circularServe: CircularsService,
     private tokenServe: TokenService,
@@ -36,6 +37,10 @@ export class CircularsPage implements OnInit {
       this.errorMessage = error.error.message;
       this.showLoader = false;
     }
+  }
+
+  toggleSearchBar(): void {
+    this.showSearchBar = !this.showSearchBar;
   }
 
   getCircularUrls(content): void {
@@ -96,6 +101,7 @@ export class CircularsPage implements OnInit {
       this.search.nativeElement.value = '';
       this.circulars = await this.circularServe.getCircularsData();
     }
+    this.showSearchBar = !this.showSearchBar;
     return;
   }
 
