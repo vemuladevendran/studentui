@@ -32,9 +32,8 @@ export class ReportsPage implements OnInit {
   }
 
 
-  refreshPage(event) {
-    window.location.reload();
-    event.target.complete();
+  refreshPage() {
+    this.getReportsList();
   }
 
   ngOnInit() {
