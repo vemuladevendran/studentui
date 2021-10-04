@@ -30,8 +30,9 @@ export class MarksPage implements OnInit {
   }
 
 
-  refreshPage() {
+  refreshPage(event) {
     this.getMarksList();
+    event.target.complete();
   }
 
 
