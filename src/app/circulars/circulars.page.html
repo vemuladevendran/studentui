@@ -11,9 +11,9 @@
     <div class="d-flex align-items-center justify-content-between bg-transparent" *ngIf="showSearchBar">
       <input type="search" placeholder="Search.. 👀" #search class="search-input w-100 border bg-transparent py-2"
         (change)="onSearch($event)">
-      <button (click)="clearSearch()" class="bg-transparent">
+      <span (click)="clearSearch()" class="bg-transparent">
         <ion-icon name="close" class="fs-2 px-3"></ion-icon>
-      </button>
+      </span>
     </div>
   </ion-toolbar>
 </ion-header>
