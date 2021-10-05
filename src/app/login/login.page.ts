@@ -25,6 +25,10 @@ export class LoginPage implements OnInit {
     });
   }
 
+  inputChange(): any {
+    this.errorMessage = '';
+  }
+
   async handleSubmit(): Promise<void> {
     try {
       //  changing status

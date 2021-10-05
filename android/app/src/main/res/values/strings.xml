@@ -1,7 +1,7 @@
 <?xml version='1.0' encoding='utf-8'?>
 <resources>
-    <string name="app_name">student</string>
-    <string name="title_activity_main">student</string>
+    <string name="app_name">Mini Stucor</string>
+    <string name="title_activity_main">Mini Stucor</string>
     <string name="package_name">io.devendran.student</string>
     <string name="custom_url_scheme">io.devendran.student</string>
 </resources>

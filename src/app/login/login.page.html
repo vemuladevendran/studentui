@@ -12,11 +12,11 @@
           <form class="py-3 px-5" [formGroup]="loginForm" (ngSubmit)="handleSubmit()">
             <div>
               <input class="text-dark bg-white py-2 w-100 border-0 border-bottom mt-3" type="text" id="rollNumber"
-                placeholder="Enter Your Roll Number" formControlName="rollNumber">
+                placeholder="Enter Your Roll Number" formControlName="rollNumber" (change)="inputChange()">
             </div>
             <div>
               <input class="text-dark bg-white py-2 w-100 border-0 border-bottom mt-3" type="password" id="rollNumber"
-                placeholder="Password" formControlName="password">
+                placeholder="Password" formControlName="password" (change)="inputChange()">
             </div>
             <span class="text-danger">{{errorMessage}}</span>
             <p class="text-end mt-3"><a class="text-dark" routerLink="/forgetpassword">Forget Password?</a></p>
