@@ -94,7 +94,7 @@
               <div class="mb-5">
                 <span class="m-0">createdAt : {{c.createdAt | date}}</span> <span
                   *ngIf="(c.createdAt | date) === (currentDate | date)" class="float-end">
-                  <ion-button fill="outline" slot="end">New</ion-button>
+                  <span slot="end" style="color: #3880ff;">New</span>
                 </span>
                 <p class="m-0">For : {{c.circularDate | date}}</p>
               </div>
