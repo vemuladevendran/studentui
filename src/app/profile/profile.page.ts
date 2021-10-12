@@ -3,7 +3,7 @@ import { AuthService } from '../services/auth/auth.service';
 import { DarkModeService } from '../services/darkMode/dark-mode.service';
 import { ProfileService } from '../services/profile/profile.service';
 import { TokenService } from '../services/token/token.service';
-
+import { AlertController } from '@ionic/angular';
 @Component({
   selector: 'app-profile',
   templateUrl: './profile.page.html',
@@ -20,6 +20,7 @@ export class ProfilePage implements OnInit {
     private authServe: AuthService,
     private tokenServe: TokenService,
     private darkModeServe: DarkModeService,
+    private alertController: AlertController
   ) { }
 
   async getProfile(): Promise<void> {
@@ -43,8 +44,32 @@ export class ProfilePage implements OnInit {
     }
   }
 
-  logOut() {
-    this.authServe.logout();
+  // logOut() {
+  //   this.authServe.logout();
+  // }
+
+
+  async logOut() {
+    const alert = await this.alertController.create({
+      header: 'Confirm!',
+      message: 'Message <strong>Are you sure you want to logout </strong>!!!',
+      buttons: [
+        {
+          text: 'Cancel',
+          role: 'cancel',
+          cssClass: 'secondary',
+          handler: () => {
+          }
+        }, {
+          text: 'Log Out',
+          handler: () => {
+            this.authServe.logout();
+          }
+        }
+      ]
+    });
+
+    await alert.present();
   }
 
   ngOnInit() {
