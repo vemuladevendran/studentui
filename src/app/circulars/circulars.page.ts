@@ -51,6 +51,7 @@ export class CircularsPage implements OnInit {
     }
     return text[0].split(',');
   }
+
   // share circular
   async shareCircular(circularTitle: any, content: any): Promise<any> {
     const shareData = {
@@ -58,7 +59,6 @@ export class CircularsPage implements OnInit {
       text: circularTitle + ' : ' + content,
       url: this.getCircularUrls(content) as any,
     };
-
     try {
       await Share.share(shareData);
       console.log('Data was shared successfully');

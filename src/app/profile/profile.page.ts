@@ -44,9 +44,6 @@ export class ProfilePage implements OnInit {
     }
   }
 
-  // logOut() {
-  //   this.authServe.logout();
-  // }
 
 
   async logOut() {
