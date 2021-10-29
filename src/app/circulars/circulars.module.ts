@@ -7,6 +7,7 @@ import { IonicModule } from '@ionic/angular';
 import { CircularsPageRoutingModule } from './circulars-routing.module';
 
 import { CircularsPage } from './circulars.page';
+import { CircularLoaderComponent } from './circular-loader/circular-loader.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { CircularsPage } from './circulars.page';
     IonicModule,
     CircularsPageRoutingModule
   ],
-  declarations: [CircularsPage]
+  declarations: [CircularsPage, CircularLoaderComponent]
 })
 export class CircularsPageModule {}
