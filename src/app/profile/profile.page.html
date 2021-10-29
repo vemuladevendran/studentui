@@ -20,7 +20,7 @@
         <!-- profile image -->
         <div class="row">
           <div class="col-6">
-            <img [src]="profileData?.photo || '/assets/default-profile.png' " alt="profile" style="max-height: 15rem;">
+            <img [src]="profileData?.photo || '/assets/default-profile.png' " alt="profile" style="max-height: 12rem; min-width: 100%;">
           </div>
           <div class="col-6 text-center">
             <p class="text-uppercase"> {{profileData?.firstName}} {{profileData?.lastName}}</p>
