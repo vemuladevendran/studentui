@@ -24,6 +24,10 @@ const routes: Routes = [
         loadChildren: () => import('../profile/profile.module').then( m => m.ProfilePageModule)
       },
       {
+        path: 'more',
+        loadChildren: () => import('../more/more.module').then( m => m.MorePageModule)
+      },
+      {
         path: '',
         redirectTo: '/circulars',
         pathMatch: 'full'

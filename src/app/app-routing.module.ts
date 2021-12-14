@@ -37,7 +37,11 @@ const routes: Routes = [
     path: 'privacy-policy',
     loadChildren: () => import('./privacy-policy/privacy-policy.module').then( m => m.PrivacyPolicyPageModule),
     canActivate: [AuthGuard]
-  }
+  },
+  {
+    path: 'more',
+    loadChildren: () => import('./more/more.module').then( m => m.MorePageModule)
+  },
 ];
 @NgModule({
   imports: [
