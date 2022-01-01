@@ -13,14 +13,17 @@
 </ion-header>
 
 <ion-content>
-
+  <ion-refresher slot="fixed" (ionRefresh)="refreshPage($event)">
+    <ion-refresher-content></ion-refresher-content>
+  </ion-refresher>
   <div class="container">
     <div class="row">
       <div class="col-12">
         <!-- profile image -->
         <div class="row">
           <div class="col-6">
-            <img [src]="profileData?.photo || '/assets/default-profile.png' " alt="profile" style="max-height: 12rem; min-width: 100%;">
+            <img [src]="profileData?.photo || '/assets/default-profile.png' " alt="profile"
+              style="max-height: 9rem; min-width: 90%;">
           </div>
           <div class="col-6 text-center">
             <p class="text-uppercase"> {{profileData?.firstName}} {{profileData?.lastName}}</p>

@@ -32,6 +32,11 @@ export class ProfilePage implements OnInit {
     }
   }
 
+  refreshPage(event): void {
+    this.getProfile();
+    event.target.complete();
+  }
+
   onToggleColorTheme(event) {
     if (event.detail.checked) {
       this.darkMode = true;

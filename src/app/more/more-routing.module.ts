@@ -15,4 +15,4 @@ const routes: Routes = [
   ],
   exports: [RouterModule],
 })
-export class MorePageRoutingModule {}
+export class MorePageRoutingModule { }
