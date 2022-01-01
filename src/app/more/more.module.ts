@@ -7,7 +7,6 @@ import { IonicModule } from '@ionic/angular';
 import { MorePageRoutingModule } from './more-routing.module';
 
 import { MorePage } from './more.page';
-import { BonafideComponent } from './bonafide/bonafide.component';
 
 @NgModule({
   imports: [
@@ -17,6 +16,6 @@ import { BonafideComponent } from './bonafide/bonafide.component';
     MorePageRoutingModule,
     ReactiveFormsModule,
   ],
-  declarations: [MorePage, BonafideComponent]
+  declarations: [MorePage]
 })
 export class MorePageModule {}
